@@ -2,6 +2,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import Kontributor from './pages/Kontributor';
 import ViewMessage from './pages/ViewMessage';
 
 /* Core CSS required for Ionic components to work properly */
@@ -33,6 +34,10 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Catatan from './pages/Catatan';
+import Blog from './pages/Blog';
+import SumberBelajar from './pages/SumberBelajar';
+import IsItHelpful from './pages/IsItHelpful';
 
 setupIonicReact();
 
@@ -40,15 +45,39 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        
         <Route path="/" exact={true}>
           <Redirect to="/home" />
         </Route>
+
+        <Route path="/kontributor">
+          <Kontributor />
+        </Route>
+
         <Route path="/home" exact={true}>
           <Home />
         </Route>
+
+        <Route path="/catatan" exact={true}>
+          <Catatan />
+        </Route>
+
+        <Route path="/blog" exact={true}>
+          <Blog />
+        </Route>
+
+        <Route path="/sumber-belajar-gratis" exact={true}>
+          <SumberBelajar />
+        </Route>
+
+        <Route path="/support-us" exact={true}>
+          <IsItHelpful />
+        </Route>
+        
         <Route path="/message/:id">
            <ViewMessage />
         </Route>
+      
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

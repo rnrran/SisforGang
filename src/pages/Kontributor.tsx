@@ -10,13 +10,14 @@ import {
   IonRefresher,
   IonRefresherContent,
   IonTitle,
+  IonText,
   IonToolbar,
   useIonViewWillEnter
 } from '@ionic/react';
 import './Home.css';
 import Header from '../components/Navbar/Header';
 
-const Home: React.FC = () => {
+const Kontributor: React.FC = () => {
 
   const [messages, setMessages] = useState<Message[]>([]);
 
@@ -37,16 +38,13 @@ const Home: React.FC = () => {
       <Header/>
 
       <IonContent fullscreen>
-        <IonRefresher slot="fixed" onIonRefresh={refresh}>
-          <IonRefresherContent></IonRefresherContent>
-        </IonRefresher>
-        <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
-        </IonList>
+            <IonText color="primary">
+                <h1>H1: The quick brown fox jumps over the lazy dog</h1>
+            </IonText>
       </IonContent>
 
     </IonPage>
   );
 };
 
-export default Home;
+export default Kontributor;
