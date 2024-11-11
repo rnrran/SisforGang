@@ -38,6 +38,10 @@ import Catatan from './pages/Catatan';
 import Blog from './pages/Blog';
 import SumberBelajar from './pages/SumberBelajar';
 import IsItHelpful from './pages/IsItHelpful';
+import Login from './pages/Authentication/Login';
+import Regis from './pages/Authentication/Regis';
+
+
 
 setupIonicReact();
 
@@ -76,6 +80,14 @@ const App: React.FC = () => (
         
         <Route path="/message/:id">
            <ViewMessage />
+        </Route>
+
+        <Route path="/login">
+           <Login />
+        </Route>
+
+        <Route path="/regis">
+           < Regis/>
         </Route>
       
       </IonRouterOutlet>

@@ -49,7 +49,7 @@ function Header() {
 
                     <IonCol size='auto'>
                         <div className='navbar ion-text-right' >
-                            <IonButton fill="solid" className='rounded-rectangle' color={"success"} routerLink='#'>
+                            <IonButton   fill="solid" className='rounded-rectangle' color={"success"} routerLink='/login'>
                                 <IonIcon icon={logInOutline}/>
                                 Login
                             </IonButton>
@@ -60,7 +60,6 @@ function Header() {
                 </IonGrid>
             </IonToolbar>
         </IonHeader>
-
     </>
     )
 }
