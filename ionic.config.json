@@ -1,0 +1,7 @@
+{
+  "name": "Sispor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
