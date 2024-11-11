@@ -6,7 +6,8 @@ import {
     IonToolbar,
     IonRow,
     IonSearchbar,
-    IonCol
+    IonCol,
+    IonGrid
   } from '@ionic/react';
 
 import './Header.css';
@@ -18,17 +19,19 @@ function Header() {
     return(
     <>
         <IonHeader>
-            <IonToolbar>
+            <IonToolbar className='ion-padding'>
+                <IonGrid>
                 <IonRow class='ion-allign-items-center'>
                     <IonCol size='auto'>
                         <IonTitle>
-                            <div className='navbar'>
                                 <IonButton fill="clear" routerLink='/home'>
                                     <IonIcon icon={glasses}/>
                                 </IonButton>
-                            </div>
                         </IonTitle>
                     </IonCol>
+
+                    <IonButton fill='clear'>/</IonButton>
+
                     <IonCol size='8'>
                         <div className='navbar ion-text-left' >
                             <IonButton fill="clear" routerLink='/kontributor'>Kontributor</IonButton>
@@ -40,15 +43,13 @@ function Header() {
                     </IonCol>
                     <IonCol>
                         <div className='navbar ion-text-right' >
-                            <div>
-                                <IonSearchbar color='primary' animated={true} placeholder="Cari Konten Disini !"></IonSearchbar>
-                            </div>
+                                <IonSearchbar className='rounded-rectangle' color='primary' animated={true} placeholder="cari apa?"></IonSearchbar>
                         </div>
                     </IonCol>
 
                     <IonCol size='auto'>
                         <div className='navbar ion-text-right' >
-                            <IonButton fill="solid" color={"success"} routerLink='#'>
+                            <IonButton fill="solid" className='rounded-rectangle' color={"success"} routerLink='#'>
                                 <IonIcon icon={logInOutline}/>
                                 Login
                             </IonButton>
@@ -56,7 +57,7 @@ function Header() {
                     </IonCol>
 
                 </IonRow>
-
+                </IonGrid>
             </IonToolbar>
         </IonHeader>
 

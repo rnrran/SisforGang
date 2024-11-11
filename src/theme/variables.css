@@ -112,7 +112,9 @@ http://ionicframework.com/docs/theming/ */
 	--ion-background-color-step-850: #262626;
 	--ion-background-color-step-900: #191919;
 	--ion-background-color-step-950: #0d0d0d;
-
+    .ion-padding-bottom{
+        margin-bottom: 1px;
+    }
 }
 
 /* IonSearchbar{
