@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { IonInput } from '@ionic/react';
 
-function EmailInput() {
+
+type Props = {
+  onEmailChange : (email: string) => void
+}
+
+function EmailInput({onEmailChange}: Props) {
   const [isTouched, setIsTouched] = useState(false);
   const [isValid, setIsValid] = useState<boolean>();
 
@@ -25,6 +30,13 @@ function EmailInput() {
     setIsTouched(true);
   };
 
+  const triggerEventEmail = (e: any) => {
+    const mail = e.target.value
+    if(validateEmail(mail)){
+      onEmailChange(e.target.value)
+    }
+  }
+
   return (
     <IonInput 
       className={`${isValid && 'ion-valid'} ${isValid === false && 'ion-invalid'} ${isTouched && 'ion-touched'} ion-margin`}
@@ -33,10 +45,11 @@ function EmailInput() {
       fill="solid"
       label="Email"
       labelPlacement="floating"
-      helperText="Masukan email yang valid !"
-      errorText="Invalid email"
+      helperText="email kamu bagus yah"
+      errorText="masukan email yang valid !😡"
       onIonInput={(event) => validate(event)}
       onIonBlur={() => markTouched()}
+      onIonChange={triggerEventEmail}
     ></IonInput>
   );
 }

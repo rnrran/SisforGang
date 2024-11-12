@@ -2,13 +2,27 @@ import React from 'react';
 import { IonInput, IonInputPasswordToggle } from '@ionic/react';
 
 type Props ={
-    field: string;
+  onPasswordChange: (email: string) => void
+  field: string
 }
 
-function PasswordInput(props:Props) {
+
+function PasswordInput({onPasswordChange, field}:Props) {
+
+  const handleEventChange = (e: any) => {
+    onPasswordChange(e.target.value)
+  }
+
   return (
     <>
-      <IonInput className='ion-margin' type='password' label={props.field} labelPlacement="floating" fill="solid" placeholder="●●●●●●●●"/>
+      <IonInput 
+      className='ion-margin' 
+      type='password' 
+      label={field} 
+      labelPlacement="floating" 
+      fill="solid" 
+      placeholder="minimal 6 karakter !"
+      onIonChange={handleEventChange}/>
     </>
   );
 }

@@ -21,6 +21,7 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+import { auth } from './firebaseConfig'
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------
@@ -40,12 +41,15 @@ import SumberBelajar from './pages/SumberBelajar';
 import IsItHelpful from './pages/IsItHelpful';
 import Login from './pages/Authentication/Login';
 import Regis from './pages/Authentication/Regis';
+import { useEffect, useState } from 'react';
 
 
 
 setupIonicReact();
 
+
 const App: React.FC = () => (
+
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -83,7 +87,12 @@ const App: React.FC = () => (
         </Route>
 
         <Route path="/login">
-           <Login />
+          {/* { isAuthenticated ?
+             (<Login />)
+             : 
+             (<Redirect to='/'/>)
+          } */}
+          <Login/>
         </Route>
 
         <Route path="/regis">

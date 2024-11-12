@@ -35,7 +35,7 @@ const Kontributor: React.FC = () => {
   return (
     <IonPage id="home-page">
       <Header/>
-      <IonContent fullscreen>
+      <IonContent fullscreen color={'dark'}>
         <IonText color="primary" className="team-title">
           <h1>Our Team</h1>
         </IonText>

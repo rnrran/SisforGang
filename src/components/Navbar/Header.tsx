@@ -11,11 +11,35 @@ import {
   } from '@ionic/react';
 
 import './Header.css';
-
-import { glasses, logInOutline } from 'ionicons/icons';
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebaseConfig'
+import { glasses, logInOutline, logOutOutline } from 'ionicons/icons';
+import { useHistory } from 'react-router';
+import { useEffect, useState } from 'react';
 
 // const Header: React.FC
 function Header() {
+    const history = useHistory()
+    const logOut = async () => {
+        await signOut(auth);
+        alert('Logout berhasil !')
+        return history.push('/')
+    }
+    
+    // bikin header kalo udah login sama belum
+    // if (!auth.currentUser?.email){console.log('current user : ' + auth.currentUser?.email)}
+
+    const [user, setUser] = useState<any>();
+    
+    useEffect(() => {
+        // Set up an observer for changes to the user's sign-in state
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+            setUser(user);
+        });
+
+        // Cleanup subscription on unmount
+        return () => unsubscribe();
+    }, []);
     return(
     <>
         <IonHeader>
@@ -41,18 +65,25 @@ function Header() {
                             <IonButton fill="clear" routerLink='/support-us'>Apakah Ini Membantu ?</IonButton>
                         </div>
                     </IonCol>
-                    <IonCol sizeLg='1.75' sizeMd='10'>
+                    <IonCol sizeLg='1.5' sizeMd='10'>
                         <div className='navbar ion-text-right' >
-                                <IonSearchbar className='rounded-rectangle' color='primary' animated={true} placeholder="cari apa?"></IonSearchbar>
+                            <IonSearchbar className='rounded-rectangle' color='primary' placeholder="cari"></IonSearchbar>
                         </div>
                     </IonCol>
 
                     <IonCol size='auto'>
                         <div className='navbar ion-text-right' >
-                            <IonButton   fill="solid" className='rounded-rectangle' color={"success"} routerLink='/login'>
-                                <IonIcon icon={logInOutline}/>
-                                Login
-                            </IonButton>
+                        {user ? (
+                                <IonButton fill="solid" className='rounded-rectangle' color={"danger"} onClick={logOut}>
+                                    <IonIcon icon={logOutOutline} />
+                                    Logout
+                                </IonButton>
+                            ) : (
+                                <IonButton fill="solid" className='rounded-rectangle' color={"success"} routerLink='/login'>
+                                    <IonIcon icon={logInOutline} />
+                                    Login
+                                </IonButton>
+                        )}
                         </div>
                     </IonCol>
 
