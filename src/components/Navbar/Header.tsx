@@ -19,7 +19,7 @@ function Header() {
     return(
     <>
         <IonHeader>
-            <IonToolbar className='ion-padding'>
+            <IonToolbar className='ion-padding' color={'dark'}>
                 <IonGrid>
                 <IonRow class='ion-allign-items-center'>
                     <IonCol size='auto'>
@@ -41,7 +41,7 @@ function Header() {
                             <IonButton fill="clear" routerLink='/support-us'>Apakah Ini Membantu ?</IonButton>
                         </div>
                     </IonCol>
-                    <IonCol>
+                    <IonCol sizeLg='1.75' sizeMd='10'>
                         <div className='navbar ion-text-right' >
                                 <IonSearchbar className='rounded-rectangle' color='primary' animated={true} placeholder="cari apa?"></IonSearchbar>
                         </div>

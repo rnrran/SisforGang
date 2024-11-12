@@ -5,13 +5,14 @@ import EmailInput from '../../components/Authentication/EmailInput';
 import PasswordInput from '../../components/Authentication/PasswordInput';
 import UsernameInput from '../../components/Authentication/UsernmaeInput';
 import { NavLink } from 'react-router-dom';
+import { colorFill } from 'ionicons/icons';
 
 function Regis() {
   return (
     <IonPage>
         <Header/>
-        <IonContent>
-        <IonCard >
+        <IonContent color={'primary'}>
+        <IonCard color={'primary'}>
             <IonGrid className='ion-margin-top'>
                 <IonRow className='navbar ion-text-center'>
                     <IonCol>
@@ -25,13 +26,15 @@ function Regis() {
 
                 <EmailInput/>
 
-                <PasswordInput/>
+                <PasswordInput field='Password'/>
 
                 {/* buat verif password */}
-                <PasswordInput/>
+                <PasswordInput field='Verify Password'/>
                 <h1><IonButton expand='block' className='ion-margin' color={'success'}>Regis</IonButton></h1>
             <IonCardContent class='ion-text-center'>sudah punya akun ? <span> </span>
-                     <NavLink to='/login'>Login</NavLink>
+                <NavLink style={{color:'#2196F3'}} to='/login'>
+                    Login
+                </NavLink>
             </IonCardContent>
             </IonCardHeader>
 
